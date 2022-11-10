@@ -16,6 +16,12 @@ public class Bai1 {
     }
 
 
+
+    private static boolean checkRepeat(int sum,char ch){
+        if (((ch-'0') -(3-(sum-(ch-'0'))%3))%3==0) return true;
+        return false;
+    }
+
     //Công thức tính số lượng số chia hết cho 3 khi thay kí tự i thành kí tự khác
     private static int getValueDivOf3(int sum, char ch) {
         if ((sum-(int)(ch-'0'))%3==0) return 4;
@@ -26,18 +32,20 @@ public class Bai1 {
     {
         int sum=getSumString(S);
         int ans=0;
+        int numRepeat=0;
         //Với mỗi kí tự, ta xét xem nếu xóa kí tự đó đi thì sẽ thay thành những số nào để chia hết cho 3
         for (int i=0;i<S.length();++i) {
+            if (checkRepeat(sum,S.charAt(i)) ) ++numRepeat;
             ans += getValueDivOf3(sum, S.charAt(i));
-            System.out.println(ans+"\n");
         }
-        return ans;
+        if (numRepeat==0) return ans;
+        return ans-numRepeat+1;
     }
 
 
     public static void main(String[] args)
     {
-        String s="022";
+        String s="0081";
         System.out.println(solve(s));
     }
 }
