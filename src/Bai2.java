@@ -37,13 +37,16 @@ public class Bai2 {
         String ans="";
         int pInt=ConvertStringToInt(P);
         int Pow=getPow(10,P.length());
+
         // Duyệt từng số điện thoại
         for (int i=0;i<B.length;++i) {
             int temp=0; //Biến temp để biến số điện thoại đang duyệt từ xâu thành số
+
             //Với mỗi số điện thoại, ta duyệt từng kí tự trong số điện thoại đó và thêm vào cuối biến temp
             for (int j = 0; j < B[i].length(); ++j)
             {
                 temp=temp*10+(B[i].charAt(j)-'0');
+
                 // nếu biến (temp-pInt)%Pow=0 thì nghĩa là P tồn tại trong số điện thoại đó
                 if ((temp-pInt)%Pow==0)
                 {
@@ -53,6 +56,7 @@ public class Bai2 {
                 }
             }
         }
+
         // Nếu ans vẫn bằng rỗng thì nghĩa là P không tồn tại trong bất kì số điện thoại nào.
         if (ans=="") return "NO CONTACT";
         return ans;

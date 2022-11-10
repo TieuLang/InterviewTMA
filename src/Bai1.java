@@ -16,7 +16,6 @@ public class Bai1 {
     }
 
 
-
     //Công thức tính số lượng số chia hết cho 3 khi thay kí tự i thành kí tự khác
     private static int getValueDivOf3(int sum, char ch) {
         if ((sum-(int)(ch-'0'))%3==0) return 4;
