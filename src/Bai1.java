@@ -16,15 +16,14 @@ public class Bai1 {
     }
 
 
-
+    //kiểm tra xem ta có thêm nhầm số ban đầu đã được thêm vào không
     private static boolean checkRepeat(int sum,char ch){
-        if (((ch-'0') -(3-(sum-(ch-'0'))%3))%3==0) return true;
-        return false;
+        return ((ch - '0') - (3 - (sum - (ch - '0')) % 3)) % 3 == 0;
     }
 
     //Công thức tính số lượng số chia hết cho 3 khi thay kí tự i thành kí tự khác
     private static int getValueDivOf3(int sum, char ch) {
-        if ((sum-(int)(ch-'0'))%3==0) return 4;
+        if ((sum- (ch-'0'))%3==0) return 4;
             else return 3;
     }
 
